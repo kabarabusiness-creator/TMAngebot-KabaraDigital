@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digitales Angebot – TM Security Website | Kabara Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1f2a44; --navy-2:#161e33; --blue:#5b8bf0; --blue-dark:#3457c9;
+    --paper:#f6f5f1; --ink:#1c1e22; --steel:#6b6d78; --line:#e6e5e0;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;}
+  .sheet{max-width:760px;margin:40px auto;background:#fff;border-radius:8px;box-shadow:0 10px 40px rgba(20,20,30,.08);overflow:hidden;}
+  .pad{padding:44px 48px;}
+  @media(max-width:640px){.pad{padding:30px 22px;} .sheet{margin:0;border-radius:0;}}
+
+  /* HEADER */
+  .head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:34px;flex-wrap:wrap;gap:16px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand .mark{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,#eef1ff);border:1px solid #dfe3ee;display:flex;align-items:center;justify-content:center;flex:none;}
+  .brand .mark svg{width:26px;height:26px;}
+  .brand .word{font-family:'Oswald';font-size:1.1rem;letter-spacing:.02em;color:var(--navy);}
+  .brand .word small{display:block;font-family:'Inter';font-weight:400;font-size:.62rem;color:var(--blue);letter-spacing:.12em;text-transform:uppercase;margin-top:2px;}
+  .head-meta{text-align:right;font-size:.78rem;color:var(--steel);}
+  .head-meta .doctitle{font-family:'Oswald';font-size:1.35rem;color:var(--ink);margin-bottom:6px;}
+
+  .parties{display:flex;justify-content:space-between;gap:30px;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--line);flex-wrap:wrap;}
+  .party .k{font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:#9a988f;margin-bottom:6px;}
+  .party .v{font-size:.9rem;line-height:1.6;}
+  .party .v strong{display:block;font-family:'Oswald';font-size:1rem;font-weight:500;color:var(--ink);}
+
+  h1.subject{font-family:'Oswald';font-size:1.3rem;margin:0 0 12px;}
+  .intro{color:#3d3f45;margin-bottom:26px;}
+
+  h2.sec{font-family:'Oswald';font-size:.88rem;letter-spacing:.03em;text-transform:uppercase;color:var(--blue);margin:0 0 12px;border-bottom:2px solid #eef1ff;padding-bottom:8px;}
+
+  ul.scope{list-style:none;margin:0 0 26px;padding:0;}
+  ul.scope li{position:relative;padding:7px 0 7px 20px;border-bottom:1px solid #f1f0ec;font-size:.88rem;}
+  ul.scope li:last-child{border-bottom:none;}
+  ul.scope li::before{content:'';position:absolute;left:0;top:14px;width:7px;height:7px;background:var(--blue);border-radius:50%;}
+
+  .price-box{display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:#f3f1ec;border-radius:6px;padding:20px 24px;margin-bottom:24px;flex-wrap:wrap;gap:10px;}
+  .price-box .desc{font-family:'Oswald';font-size:1rem;margin-top:4px;}
+  .price-box .label{font-size:.8rem;color:#b9c4de;}
+  .price-box .amount{font-family:'Oswald';font-size:1.8rem;color:#8fb0f5;text-align:right;}
+  .price-box .amount small{display:block;font-family:'Inter';font-size:.62rem;color:#9aa5bf;font-weight:400;text-align:right;margin-top:2px;}
+
+  .support-box{border:1px solid #dfe3ee;background:#f7f9ff;border-radius:6px;padding:20px 24px;margin-bottom:24px;}
+  .support-box .head-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+  .support-box .badge{background:var(--blue);color:#fff;font-family:'Oswald';font-size:.68rem;letter-spacing:.04em;padding:5px 12px;border-radius:999px;}
+  .support-box .head-row .t{font-family:'Oswald';font-size:1rem;color:var(--navy);}
+  .support-box ul{margin:0;padding:0;list-style:none;columns:2;column-gap:26px;}
+  .support-box li{position:relative;padding:4px 0 4px 16px;font-size:.83rem;color:#3d3f45;break-inside:avoid;}
+  .support-box li::before{content:'✓';position:absolute;left:0;color:var(--blue);font-weight:700;font-size:.78rem;}
+  @media(max-width:520px){.support-box ul{columns:1;}}
+
+  .terms{display:flex;gap:30px;margin-bottom:30px;flex-wrap:wrap;}
+  .terms .col{flex:1;min-width:150px;}
+  .terms .k{font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:#9a988f;margin-bottom:6px;}
+  .terms .v{font-size:.84rem;color:#3d3f45;}
+
+  /* ORDER SECTION */
+  .order-box{border-top:2px solid var(--navy);padding-top:26px;}
+  .order-box h2.sec2{font-family:'Oswald';font-size:1.05rem;color:var(--navy);border:none;padding:0;margin-bottom:8px;}
+  .order-box p.lead{color:var(--steel);font-size:.88rem;margin:0 0 20px;}
+
+  #orderStart{
+    display:flex;align-items:center;justify-content:center;gap:12px;width:100%;
+    background:var(--blue-dark);color:#fff;border:0;padding:18px 24px;border-radius:6px;
+    font-family:'Oswald';font-size:1.05rem;letter-spacing:.02em;cursor:pointer;transition:background .15s;
+  }
+  #orderStart:hover{background:#2c48ac;}
+
+  #orderForm{display:none;flex-direction:column;gap:14px;margin-top:20px;padding:22px;background:#f7f9ff;border:1px solid #dfe3ee;border-radius:6px;}
+  #orderForm.open{display:flex;}
+  #orderForm label{font-size:.78rem;color:#5f616b;margin-bottom:4px;display:block;}
+  #orderForm input{width:100%;border:1px solid #d6d9e0;border-radius:4px;padding:11px 12px;font-family:'Inter';font-size:.9rem;}
+  #orderForm input:focus{outline:none;border-color:var(--blue);}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:520px){.row2{grid-template-columns:1fr;}}
+  .confirm-check{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:#3d3f45;}
+  .confirm-check input{width:auto;margin-top:3px;flex:none;}
+  #orderSubmit{background:var(--blue-dark);color:#fff;border:0;border-radius:6px;padding:14px;font-weight:600;cursor:pointer;font-size:.92rem;transition:background .15s;}
+  #orderSubmit:hover{background:#2c48ac;}
+  #orderSubmit:disabled{background:#b7c2d9;cursor:not-allowed;}
+  .order-status{font-size:.82rem;min-height:1.2em;}
+
+  /* CONFIRMATION PANEL */
+  #confirmPanel{display:none;margin-top:22px;}
+  #confirmPanel.open{display:block;}
+  .confirm-head{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+  .confirm-head .tick{
+    width:34px;height:34px;border-radius:50%;background:#26a65b;color:#fff;flex:none;
+    display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+  }
+  .confirm-head .t{font-family:'Oswald';font-size:1.1rem;color:var(--ink);}
+  .confirm-head small{display:block;color:var(--steel);font-size:.8rem;margin-top:2px;}
+
+  .pay-box{border:1px solid #dfe3ee;border-radius:6px;padding:22px 24px;background:#fbfbf9;}
+  .pay-box .row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #eee;font-size:.88rem;gap:14px;}
+  .pay-box .row:last-child{border-bottom:none;}
+  .pay-box .row .k{color:var(--steel);}
+  .pay-box .row .v{font-weight:600;text-align:right;}
+  .pay-box .v.mono{font-family:'Courier New',monospace;letter-spacing:.02em;}
+  .due-note{margin-top:14px;font-size:.82rem;color:#8a5a00;background:#fff6e5;border:1px solid #f0dca8;padding:10px 14px;border-radius:4px;}
+
+  footer.doc{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:.72rem;color:#9a988f;flex-wrap:wrap;gap:6px;}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <div class="pad">
+
+    <div class="head">
+      <div class="brand">
+        <span class="mark">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="g1" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#5b8bf0"/><stop offset="1" stop-color="#1f3a93"/>
+            </linearGradient></defs>
+            <path d="M8 6v28M8 20l14-14M8 20l14 14" stroke="url(#g1)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M25 12c5 1 8 4.5 8 8s-3 7-8 8" stroke="url(#g1)" stroke-width="4" stroke-linecap="round" fill="none"/>
+          </svg>
+        </span>
+        <span class="word">KABARA DIGITAL<small>Web design &amp; online marketing</small></span>
+      </div>
+      <div class="head-meta">
+        <div class="doctitle">Digitales Angebot</div>
+        <div>Angebotsnr. KD-2026-014</div>
+        <div>Datum: 15. September 2026</div>
+        <div>Gültig bis: 29. September 2026</div>
+      </div>
+    </div>
+
+    <div class="parties">
+      <div class="party">
+        <div class="k">Von</div>
+        <div class="v"><strong>Kabara Digital</strong>Inhaber: Mert Kabara<br>Johannesbergerstraße 19<br>63776 Mömbris<br>info@kabaradigital.de<br>015129534820<br>Kleinunternehmer gem. §19 UStG</div>
+      </div>
+      <div class="party">
+        <div class="k">An</div>
+        <div class="v"><strong>TM Security</strong>Odenwaldstraße 5B<br>63939 Wörth am Main</div>
+      </div>
+    </div>
+
+    <h1 class="subject">Website-Erstellung tm-security.de</h1>
+    <p class="intro">Anbei Ihr Angebot für die Erstellung einer modernen, SEO-optimierten Website für TM Security. Sie können die Bestellung direkt auf dieser Seite verbindlich abschließen.</p>
+    <p style="margin:-10px 0 26px;">
+      <a href="https://kabarabusiness-creator.github.io/TMSecurity-KabaraDigital/" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:8px;background:#eef1ff;color:#1f2a44;border:1px solid #dfe3ee;padding:11px 18px;border-radius:6px;font-family:'Oswald';font-size:.9rem;text-decoration:none;">
+        🔗 Live-Demo der Website ansehen
+      </a>
+    </p>
+
+    <h2 class="sec">Leistungsumfang</h2>
+    <ul class="scope">
+      <li>Individuelles, modernes Website-Design abgestimmt auf Ihre Marke (Farben, Logo, Bildsprache)</li>
+      <li>Startseite mit Hero-Bereich, Leistungsübersicht, Einsatzgebiet-Sektion mit Referenzbildern, FAQ-Bereich und Google-Bewertungen-Sektion</li>
+      <li>Suchmaschinenoptimierung (SEO) für den Raum Aschaffenburg</li>
+      <li>Vollständig responsives Design für Smartphone, Tablet und Desktop</li>
+      <li>Funktionierendes Kontaktformular für Anfragen</li>
+      <li>Technisch so aufgebaut, dass Sie Inhalte bei Bedarf auch selbst anpassen können</li>
+      <li>Übergabe aller Dateien nach Fertigstellung</li>
+    </ul>
+
+    <div class="price-box">
+      <div><div class="label">Gesamtpreis</div><div class="desc">Website-Erstellung, einmalig</div></div>
+      <div class="amount">500,00 €<small>Gemäß §19 UStG wird keine Umsatzsteuer berechnet</small></div>
+    </div>
+
+    <div class="support-box">
+      <div class="head-row"><span class="badge">Inklusive</span><span class="t">1 Jahr persönlicher Support</span></div>
+      <ul>
+        <li>Änderungen an Texten, Bildern &amp; Inhalten</li>
+        <li>Unterstützung bei technischen Fragen</li>
+        <li>Direkter Ansprechpartner statt Formular-Ticket</li>
+        <li>Kleinere Anpassungen am Design</li>
+        <li>Hilfe bei Domain- &amp; Hosting-Fragen</li>
+        <li>Erreichbar per WhatsApp, Telefon oder E-Mail</li>
+      </ul>
+    </div>
+
+    <div class="terms">
+      <div class="col"><div class="k">Zahlungsziel</div><div class="v">14 Tage ab verbindlicher Bestellung.</div></div>
+      <div class="col"><div class="k">Support-Zeitraum</div><div class="v">12 Monate ab Übergabe der Website.</div></div>
+      <div class="col"><div class="k">Leistungsort</div><div class="v">Remote, nach Absprache vor Ort möglich.</div></div>
+    </div>
+
+    <h2 class="sec">Vertragsbedingungen (Kurzfassung)</h2>
+    <ul class="scope" style="margin-bottom:28px;">
+      <li><strong>Gewährleistung:</strong> Bei Mängeln erhält Kabara Digital zunächst die Gelegenheit zur Nacherfüllung (Korrektur/Nachbesserung) innerhalb angemessener Frist.</li>
+      <li><strong>Haftung:</strong> Kabara Digital haftet nach den gesetzlichen Bestimmungen; für leichte Fahrlässigkeit ist die Haftung auf vertragstypische, vorhersehbare Schäden begrenzt.</li>
+      <li><strong>Eigentumsvorbehalt:</strong> Alle Rechte an der Website gehen erst nach vollständiger Bezahlung auf TM Security über.</li>
+      <li><strong>Nutzungsrecht:</strong> TM Security erhält nach Zahlungseingang das einfache, zeitlich unbegrenzte Nutzungsrecht an der erstellten Website.</li>
+    </ul>
+
+    <!-- ORDER -->
+    <div class="order-box" id="orderSection">
+      <h2 class="sec2">Bestellung abschließen</h2>
+      <p class="lead">Mit Klick auf „Jetzt verbindlich bestellen" nehmen Sie dieses Angebot zu den genannten Konditionen verbindlich an.</p>
+
+      <button type="button" id="orderStart">Jetzt verbindlich bestellen – 500,00 €</button>
+
+      <form id="orderForm">
+        <div class="row2">
+          <div>
+            <label for="ordName">Name / Ansprechpartner</label>
+            <input type="text" id="ordName" required>
+          </div>
+          <div>
+            <label for="ordKontakt">E-Mail oder Telefon</label>
+            <input type="text" id="ordKontakt" required>
+          </div>
+        </div>
+        <label class="confirm-check">
+          <input type="checkbox" id="ordConfirm" required>
+          Ich bestätige diese Bestellung verbindlich zu den oben genannten Konditionen (500,00 €, Zahlungsziel 14 Tage).
+        </label>
+        <p style="font-size:.76rem;color:#8b8d97;margin:0;">Ihre Angaben werden zur Bearbeitung dieser Bestellung genutzt und über den Dienstleister Web3Forms verschickt. Weitere Infos in unserer Datenschutzerklärung.</p>
+        <button type="submit" id="orderSubmit">Verbindlich bestellen</button>
+        <p class="order-status" id="orderStatus"></p>
+      </form>
+
+      <!-- CONFIRMATION + PAYMENT -->
+      <div id="confirmPanel">
+        <div class="confirm-head">
+          <span class="tick">✓</span>
+          <div>
+            <div class="t">Bestellung verbindlich bestätigt</div>
+            <small id="confirmMeta"></small>
+          </div>
+        </div>
+
+        <div class="pay-box">
+          <div class="row"><span class="k">Empfänger</span><span class="v">Kabara Digital (Mert Kabara)</span></div>
+          <div class="row"><span class="k">IBAN</span><span class="v mono">DE37 7955 0000 0012 7140 10</span></div>
+          <div class="row"><span class="k">BIC</span><span class="v mono">BYLADEM1ASA</span></div>
+          <div class="row"><span class="k">Bank</span><span class="v">Sparkasse Aschaffenburg-Miltenberg</span></div>
+          <div class="row"><span class="k">Betrag</span><span class="v">500,00 €</span></div>
+          <div class="row"><span class="k">Verwendungszweck</span><span class="v" id="confirmRef">KD-2026-014 – TM Security</span></div>
+        </div>
+        <p class="due-note" id="dueNote"></p>
+        <p style="margin-top:14px;"><a id="mailtoCopy" href="#" style="font-size:.82rem;color:var(--blue-dark);text-decoration:underline;">Diese Bestätigung als E-Mail an mich selbst sichern</a></p>
+      </div>
+    </div>
+
+    <footer class="doc">
+      <span>Kabara Digital · Mert Kabara · Johannesbergerstraße 19 · 63776 Mömbris</span>
+      <span>info@kabaradigital.de · 015129534820</span>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+  const orderStart = document.getElementById('orderStart');
+  const orderForm = document.getElementById('orderForm');
+  const orderSection = document.getElementById('orderSection');
+  const orderStatus = document.getElementById('orderStatus');
+  const confirmPanel = document.getElementById('confirmPanel');
+  const confirmMeta = document.getElementById('confirmMeta');
+  const dueNote = document.getElementById('dueNote');
+  const confirmRef = document.getElementById('confirmRef');
+
+  orderStart.addEventListener('click', () => {
+    orderForm.classList.add('open');
+    orderStart.style.display = 'none';
+  });
+
+  orderForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const name = document.getElementById('ordName').value.trim();
+    const kontakt = document.getElementById('ordKontakt').value.trim();
+
+    orderStatus.textContent = 'Wird bestätigt…';
+    orderStatus.style.color = '#777';
+
+    try{
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify({
+          access_key: 'fcd3b28c-f2e4-48ae-b173-786935f6c6a5',
+          subject: 'Verbindliche Bestellung: Angebot KD-2026-014 (TM Security)',
+          Name: name,
+          Kontakt: kontakt,
+          email: kontakt.includes('@') ? kontakt : undefined,
+          replyto: kontakt.includes('@') ? kontakt : undefined,
+          Angebot: 'KD-2026-014',
+          Betrag: '500,00 €',
+          Zahlungsziel: '14 Tage'
+        })
+      });
+      const data = await res.json();
+
+      if(data.success){
+        const now = new Date();
+        const due = new Date(now.getTime() + 14*24*60*60*1000);
+        const fmt = d => d.toLocaleDateString('de-DE', {day:'2-digit',month:'2-digit',year:'numeric'});
+
+        confirmMeta.textContent = 'Bestätigt am ' + fmt(now) + ' von ' + name;
+        dueNote.textContent = 'Zahlungsziel: 14 Tage – fällig bis ' + fmt(due) + '.';
+        confirmRef.textContent = 'KD-2026-014 – ' + (name || 'TM Security');
+
+        const mailBody = encodeURIComponent(
+          'Bestellbestätigung – Angebot KD-2026-014\n\n' +
+          'Bestellt von: ' + name + '\n' +
+          'Kontakt: ' + kontakt + '\n' +
+          'Bestätigt am: ' + fmt(now) + '\n\n' +
+          'Leistung: Website-Erstellung tm-security.de\n' +
+          'Betrag: 500,00 € (Kleinunternehmer gem. §19 UStG, keine USt.)\n' +
+          'Zahlungsziel: 14 Tage – fällig bis ' + fmt(due) + '\n\n' +
+          'Bankverbindung:\n' +
+          'Empfänger: Kabara Digital (Mert Kabara)\n' +
+          'IBAN: DE37 7955 0000 0012 7140 10\n' +
+          'BIC: BYLADEM1ASA\n' +
+          'Bank: Sparkasse Aschaffenburg-Miltenberg\n' +
+          'Verwendungszweck: KD-2026-014 – ' + name
+        );
+        const mailtoLink = document.getElementById('mailtoCopy');
+        mailtoLink.href = 'mailto:' + (kontakt.includes('@') ? kontakt : '') +
+          '?subject=' + encodeURIComponent('Bestellbestätigung KD-2026-014 – TM Security Website') +
+          '&body=' + mailBody;
+
+        orderForm.classList.remove('open');
+        confirmPanel.classList.add('open');
+      } else {
+        orderStatus.textContent = 'Bestätigung fehlgeschlagen. Bitte erneut versuchen.';
+        orderStatus.style.color = '#c23b3b';
+      }
+    } catch(err){
+      orderStatus.textContent = 'Bestätigung fehlgeschlagen. Bitte erneut versuchen.';
+      orderStatus.style.color = '#c23b3b';
+    }
+  });
+</script>
+
+</body>
+</html>
